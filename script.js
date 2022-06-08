@@ -1,13 +1,14 @@
 document.getElementById("button").addEventListener("click", function () {
   let date = new Date(document.getElementById("date").value);
 
-  date = date.getTime() + 1000 * 3600 * 24;
+  // date = date.getTime() + 1000 * 3600 * 24;
   date = new Date(date);
+  const currentDay = date.getUTCDay() + 1;
+  const currentDate = date.getUTCDate();
+  const currentMonth = date.getUTCMonth() + 1
+  const currentYear = date.getUTCFullYear();
 
-  const currentDay = date.getDay() + 1;
-  const currentDate = date.getDate();
-  const currentMonth = date.getMonth() + 1;
-  const currentYear = date.getFullYear();
+  console.log(date.toLocaleDateString("pt-BR", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }))
 
   switch (currentDay) {
     case 1:
